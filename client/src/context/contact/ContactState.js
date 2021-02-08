@@ -59,7 +59,7 @@ import {
          <contactContext.Provider value={{ 
              contacts: state.contacts
          }}>
-            { props.children}
+            { props.children }
          </contactContext.Provider>
      )
  }
