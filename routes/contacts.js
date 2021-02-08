@@ -6,7 +6,7 @@ const auth = require('../middleware/auth');
 const Contact = require('../models/Contact');
 const User = require('../models/User');
 
-//@route   POST api/contacts
+//@route   GET api/contacts
 //@desc    Get all users contacts
 //@access  Private
 router.get('/', auth, async (req, res) => {
@@ -23,7 +23,7 @@ router.get('/', auth, async (req, res) => {
 //@route   POST api/contacts
 //@desc    Add new contacts
 //@access  Private
-router.post('/', 
+router.post('/',
 [ 
     auth,
      [
@@ -60,15 +60,65 @@ async (req, res) => {
 //@route   PUT api/contacts/:id
 //@desc    Get all users contacts
 //@access  Private
-router.put('/:id', (req, res) => {
-    res.send('Update contact');
+router.put('/:id', auth, async (req, res) => {
+    const { name, email, phone, type } = req.body;
+
+    //Build Contact Object
+    const contactFields = {};
+    if(name) contactFields.name = name;
+    if(email) contactFields.email = email;
+    if(phone) contactFields.phone = phone;
+    if(type) contactFields.type = type;
+
+    try{
+        let contact = await Contact.findById(req.params.id);
+        //Check if contact exists
+        if(!contact){
+            return res.status(404).status.json({ msg: "Contact not found"});
+        }
+
+        //Check that user owns contact
+        if(contact.user.toString() !== req.user.id){
+            return res.status(401).json({ msg: "Not Authorized" });
+        }
+
+        //Update the contact
+        contact = await Contact.findByIdAndUpdate(req.params.id,
+           { $set: contactFields },
+           { new: true } 
+            );
+            res.json(contact);
+    }
+    catch(err){
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
 })
 
-//@route   PUT api/contacts/:id
+//@route   delete api/contacts/:id
 //@desc    Delete users contacts
 //@access  Private
-router.delete('/:id', (req, res) => {
-    res.send('Delete contact');
+router.delete('/:id', auth, async(req, res) => {
+    try{
+        let contact = await Contact.findById(req.params.id);
+        //Check if contact exists
+        if(!contact){
+            return res.status(404).status.json({ msg: "Contact not found"});
+        }
+
+        //Check that user owns contact
+        if(contact.user.toString() !== req.user.id){
+            return res.status(401).json({ msg: "Not Authorized" });
+        }
+
+        //Delete the contact
+        await Contact.findByIdAndRemove(req.params.id);
+        res.json({ msg: "Contact Removed "});
+    }
+    catch(err){
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
 })
 
 module.exports = router
