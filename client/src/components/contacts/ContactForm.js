@@ -7,7 +7,7 @@ const ContactForm = () => {
 
     const { addContact, current, clearCurrent, updateContact } = ContactContext;
 
-    useEffect(() => {
+    useEffect(() => { //like componentdidmount and co
         if(current !== null) {
             setContact(current);
         }

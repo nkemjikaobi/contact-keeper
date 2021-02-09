@@ -77,7 +77,7 @@ import {
 
      //Clear Filter
      const clearFilter = () => {
-         dispatch({ type: CLEAR_CURRENT })
+         dispatch({ type: CLEAR_FILTER })
      }
 
      return (
