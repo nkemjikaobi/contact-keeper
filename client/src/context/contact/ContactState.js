@@ -37,7 +37,8 @@ import {
                 type: "home"
             }
         ],
-        current: null
+        current: null,
+        filtered: null
      };
 
      const [ state, dispatch ] =  useReducer(contactReducer, initialState);
@@ -70,18 +71,27 @@ import {
     }
 
      //Filter Contact
+     const filterContacts = text => {
+        dispatch({ type: FILTER_CONTACTS, payload: text })
+    }
 
      //Clear Filter
+     const clearFilter = () => {
+         dispatch({ type: CLEAR_CURRENT })
+     }
 
      return (
          <contactContext.Provider value={{ 
              contacts: state.contacts,
              current: state.current,
+             filtered: state.filtered,
              addContact,
              deleteContact,
              setCurrent,
              clearCurrent,
-             updateContact
+             updateContact,
+             filterContacts,
+             clearFilter
          }}>
             { props.children }
          </contactContext.Provider>
