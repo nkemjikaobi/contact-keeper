@@ -27,7 +27,7 @@ import {
                 name: "Derick Obi",
                 email: "derick@gmail.com",
                 phone: "243-233-7584",
-                type: "work"
+                type: "home"
             },
             {
                 id: 3,
