@@ -10,9 +10,9 @@ connectDB();
 //Init Middleware for accepting data from body
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) =>
- res.json({ msg: "Welcome to Derick's Contact Keeper Api"})
- );
+// app.get('/', (req, res) =>
+//  res.json({ msg: "Welcome to Derick's Contact Keeper Api"})
+//  );
 
  //Define Routes
  app.use('/api/users', require('./routes/users'));
