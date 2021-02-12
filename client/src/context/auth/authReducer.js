@@ -5,7 +5,8 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    CLEAR_ERRORS
+    CLEAR_ERRORS,
+    LOGOUT
  } from '../types'
 
  const authReducer = (state, action) => {
@@ -63,6 +64,17 @@ import {
                 user: null,
                 error: action.payload
             }
+        case LOGOUT:
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                token: null,
+                isAuthenticated: false,
+                loading: false,
+                user: null,
+                error: action.payload
+            }
+
         case CLEAR_ERRORS:
             return {
                 ...state,
