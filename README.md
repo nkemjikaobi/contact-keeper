@@ -1,13 +1,19 @@
 LIVE URL:  https://deric-contact-keeper.herokuapp.com/
 
-Contact Keeper
+<h1>Contact Keeper</h1>
 
 A Contact Keeper built with NODEJS, EXPRESS, REACT and MONGODB
 
-Add your database URI and JWT secret in the config folder { either **production.json** or **default.json** } depending on your environment
+<h1>Clone The Repository</h1>
+<code><pre>git clone https://github.com/nkemjikaobi/contact-keeper.git</pre></code>
 
-Running the Project.
-Install dependencies with npm install
+<h1>CD into the project</h1>
+<code><pre>cd contact-keeper</pre></code>
+
+<h1>Running the Project.</h1>
+Install dependencies with <code><pre>npm install</pre></code>
+
+Add your database URI and JWT secret in the config folder { either **production.json** or **default.json** } depending on your environment
 
 Run npm run dev { this will concurrently run the server and the client side }
 
@@ -22,6 +28,6 @@ CONFIG is used to store our environment variables
 
 Check all dependencies and devdependecies used in **package.json**
 
-Next steps
+<h1>Next steps</h1>
 Visit http://localhost:3000
 Register a new user and start storing contacts
