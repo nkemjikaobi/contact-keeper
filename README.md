@@ -6,6 +6,7 @@ LIVE URL:  https://deric-contact-keeper.herokuapp.com/
 <p>Satisfies the CRUD functionalites</p>
 
 A Contact Keeper built with NODEJS, EXPRESS, REACT and MONGODB
+<p>CONTEXT API was used for STATE MANAGEMENT across COMPONENTS</p>
 
 <h1>Clone The Repository</h1>
 <code><pre>git clone https://github.com/nkemjikaobi/contact-keeper.git</pre></code>
