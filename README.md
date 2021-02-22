@@ -1,6 +1,9 @@
 LIVE URL:  https://deric-contact-keeper.herokuapp.com/
 
 <h1>Contact Keeper</h1>
+* <p>This is a project for users to store contacts</p>
+* <p>Contacts are associated to a single user i.e An unauthorized user can't read or write another users contact</p>
+* <p>Satisfies the CRUD functionalites</p>
 
 A Contact Keeper built with NODEJS, EXPRESS, REACT and MONGODB
 
