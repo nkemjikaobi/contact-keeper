@@ -33,4 +33,4 @@ Install dependencies with <code><pre>npm install</pre></code>
 
 <h1>Next steps</h1>
 Visit http://localhost:3000
-Register a new user and start storing contacts
+<p>Register a new user and start storing contacts</p>
