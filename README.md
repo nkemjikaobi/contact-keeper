@@ -18,7 +18,7 @@ Install dependencies with <code><pre>npm install</pre></code>
 
 * Add your database URI and JWT secret in the config folder { either **production.json** or **default.json** } depending on your environment
 
-* Run npm run dev { this will concurrently run the server and the client side }
+* Run <code><pre>npm run dev</pre></code> { this will concurrently run the server and the client side }
 
 * Routes for the API endpoints can be found in the **routes** folder 
 * The models for the users and contacts can be found in the **models** folder 
