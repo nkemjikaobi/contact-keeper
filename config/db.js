@@ -3,19 +3,24 @@ const config = require('config');
 const db = config.get('mongoURI');
 
 const connectDB = async () => {
-    try{
-        mongoose.connect(db, {
+    
+    try {
+        const conn = await mongoose.connect(db, {
+            useUnifiedTopology: true,
+            useNewUrlParser: true,
             useCreateIndex: true,
             useFindAndModify: false,
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log("Connected to the Database...");
+        })
+
+        console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+        console.error(`Error: ${error.message}`);
+        process.exit(1)
     }
-    catch (err){
-        console.error(err.message);
-        process.exit(1); //exit with failure
-    }
+    // catch (err){
+    //     console.error(err.message);
+    //     process.exit(1); //exit with failure
+    // }
 }
 
 module.exports = connectDB;
