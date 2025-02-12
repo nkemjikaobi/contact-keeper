@@ -1,4 +1,4 @@
-LIVE URL:  https://deric-contact-keeper.herokuapp.com/
+
 
 <h1>Contact Keeper</h1>
 <p>This is a project for users to store contacts</p>
